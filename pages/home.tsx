@@ -6,6 +6,9 @@ interface Props {
   id: string
 }
 
+
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
 const home = ({ id }: Props) => {
   return (
     <div>
@@ -15,7 +18,7 @@ const home = ({ id }: Props) => {
       
       <h1>H0m3 #{id}</h1>
 
-      <Link href='/'>
+      <Link href='/' as={`${prefix}/`}>
         <a>Go back!</a>
       </Link>
     </div>
