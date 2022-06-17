@@ -17,10 +17,7 @@ const Home: NextPage = () => {
           Hello friend!
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
+        <Image src="/hackerman.jpg" alt="Elliot" width={300} height={300} />
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
