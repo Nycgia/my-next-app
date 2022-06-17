@@ -2,6 +2,8 @@ import React from 'react'
 import Head from 'next/head'
 import Router from 'next/router'
 
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
 interface Props {
   id: string
 }
@@ -9,7 +11,7 @@ interface Props {
 const home = ({ id }: Props) => {
   const handleClick = (e: React.FormEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    Router.push('/')
+    Router.push(prefix + '/')
   }
 
   return (

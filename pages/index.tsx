@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   const handleClick = (e: React.FormEvent<HTMLAnchorElement>, id: string|number) => {
     e.preventDefault()
     Router.push({
-      pathname: '/home',
+      pathname: prefix + '/home',
       query: {
         id: typeof id === 'string' ? id : id.toString()
       },
