@@ -2,8 +2,19 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Router from 'next/router'
 
 const Home: NextPage = () => {
+  const handleClick = (e: React.FormEvent<HTMLAnchorElement>, id: string|number) => {
+    e.preventDefault()
+    Router.push({
+      pathname: '/home',
+      query: {
+        id: typeof id === 'string' ? id : id.toString()
+      },
+    })
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,6 +29,14 @@ const Home: NextPage = () => {
         </h1>
 
         <Image src="/hackerman.jpg" alt="Elliot" width={300} height={300} />
+
+        <a href={'/home'} onClick={e => handleClick(e, 123)} className={styles.card}>
+          go to home!
+        </a>
+
+        <a href={'/home'} onClick={e => handleClick(e, 'Holaa')} className={styles.card}>
+          go to home 2!
+        </a>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
