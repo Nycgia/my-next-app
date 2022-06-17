@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import Router from 'next/router'
 
 interface Props {
@@ -8,11 +9,15 @@ interface Props {
 const home = ({ id }: Props) => {
   const handleClick = (e: React.FormEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    Router.back()
+    Router.push('/')
   }
 
   return (
     <div>
+      <Head>
+        <title>Home Page ! 0030123012301230</title>
+      </Head>
+      
       <h1>H0m3 #{id}</h1>
 
       <a href={'/'} onClick={handleClick}>
