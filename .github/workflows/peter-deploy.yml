@@ -25,11 +25,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
+    - name: Installing Packages
+      run: npm ci
+    - name: Building app
+      run: npm run build --if-present
       env:
         NEXT_PUBLIC_BASE_PATH: /my-next-app
-    - run: npm run export
+    - name: Exporting App
+      run: npm run export
       env:
         NEXT_PUBLIC_BASE_PATH: /my-next-app
     - run: touch ./out/.nojekyll

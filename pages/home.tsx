@@ -1,19 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
-import Router from 'next/router'
-
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
+import Link from 'next/link'
 
 interface Props {
   id: string
 }
 
 const home = ({ id }: Props) => {
-  const handleClick = (e: React.FormEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    Router.push(prefix + '/')
-  }
-
   return (
     <div>
       <Head>
@@ -22,9 +15,9 @@ const home = ({ id }: Props) => {
       
       <h1>H0m3 #{id}</h1>
 
-      <a href={'/'} onClick={handleClick}>
-        go back!
-      </a>
+      <Link href='/'>
+        <a>Go back!</a>
+      </Link>
     </div>
   )
 }
@@ -36,8 +29,8 @@ interface IGetInitialProps {
 }
 
 home.getInitialProps = async ({ query }: IGetInitialProps) => {
-  const {id} = query
-  return {id}
+  const { id } = query
+  return { id }
 }
 
 export default home

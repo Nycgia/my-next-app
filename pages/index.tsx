@@ -1,20 +1,10 @@
-import type { NextPage } from 'next'
+import Link from 'next/link'
 import Image from 'next/image'
-import Router from 'next/router'
+import type { NextPage } from 'next'
+
 import styles from '../styles/Home.module.css'
 
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
-
 const Home: NextPage = () => {
-  const handleClick = (e: React.FormEvent<HTMLAnchorElement>, id: string|number) => {
-    e.preventDefault()
-    Router.push({
-      pathname: prefix + '/home',
-      query: {
-        id: typeof id === 'string' ? id : id.toString()
-      },
-    })
-  }
 
   return (
     <div className={styles.container}>
@@ -25,13 +15,27 @@ const Home: NextPage = () => {
 
         <Image src={"/hackerman.jpg"} alt="Elliot" width={300} height={300} />
 
-        <a href={prefix + '/home'} onClick={e => handleClick(e, 123)} className={styles.card}>
-          go to home!
-        </a>
+        <Link
+          href={{
+            pathname: '/home',
+            query: {
+              id: '123'
+            },
+          }}
+        >
+          <a>Go to home!</a>
+        </Link>
 
-        <a href={prefix + '/home'} onClick={e => handleClick(e, 'Holaa')} className={styles.card}>
-          go to home 2!
-        </a>
+        <Link
+          href={{
+            pathname: '/home',
+            query: {
+              id: 'h0l4444 !'
+            },
+          }}
+        >
+          <a>Go to home!</a>
+        </Link>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
