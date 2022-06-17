@@ -4,6 +4,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Router from 'next/router'
 
+const prefix = '/my-next-app'
+
 const Home: NextPage = () => {
   const handleClick = (e: React.FormEvent<HTMLAnchorElement>, id: string|number) => {
     e.preventDefault()
@@ -28,13 +30,13 @@ const Home: NextPage = () => {
           Hello friend!
         </h1>
 
-        <Image src="/hackerman.jpg" alt="Elliot" width={300} height={300} />
+        <Image src={prefix + "/hackerman.jpg"} alt="Elliot" width={300} height={300} />
 
-        <a href={'/home'} onClick={e => handleClick(e, 123)} className={styles.card}>
+        <a href={prefix + '/home'} onClick={e => handleClick(e, 123)} className={styles.card}>
           go to home!
         </a>
 
-        <a href={'/home'} onClick={e => handleClick(e, 'Holaa')} className={styles.card}>
+        <a href={prefix + '/home'} onClick={e => handleClick(e, 'Holaa')} className={styles.card}>
           go to home 2!
         </a>
 
