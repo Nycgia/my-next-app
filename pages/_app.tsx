@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
 
-const prefix = '/my-next-app'
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <>

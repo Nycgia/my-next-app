@@ -1,13 +1,15 @@
 /** @type {import('next').NextConfig} */
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: 'akamai',
     path: '',
   },
-  assetPrefix: '/my-next-app',
-  basePath: '/my-next-app'
+  assetPrefix: basePath,
+  basePath: basePath
 }
 
 module.exports = nextConfig
